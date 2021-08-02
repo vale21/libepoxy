@@ -174,11 +174,22 @@
 #include "dispatch_common.h"
 
 #if defined(__APPLE__)
+#include <TargetConditionals.h>
+#if TARGET_OS_OSX
 #define GLX_LIB "/opt/X11/lib/libGL.1.dylib"
-#define EGL_LIB "libEGL.dylib"
+#define EGL_LIB "EGL.framework/Versions/Current/EGL"
 #define OPENGL_LIB "/System/Library/Frameworks/OpenGL.framework/Versions/Current/OpenGL"
-#define GLES1_LIB "libGLESv1_CM.dylib"
-#define GLES2_LIB "libGLESv2.dylib"
+#define GLES1_LIB "GLESv1_CM.framework/Versions/Current/GLESv1_CM"
+#define GLES2_LIB "GLESv2.framework/Versions/Current/GLESv2"
+#elif TARGET_OS_IPHONE
+#define GLX_LIB "/opt/X11/lib/libGL.1.dylib"
+#define EGL_LIB "EGL.framework/EGL"
+#define OPENGL_LIB "/System/Library/Frameworks/OpenGL.framework/Versions/Current/OpenGL"
+#define GLES1_LIB "GLESv1_CM.framework/GLESv1_CM"
+#define GLES2_LIB "GLESv2.framework/GLESv2"
+#else
+#error "This Apple platform is not supported."
+#endif
 #elif defined(__ANDROID__)
 #define GLX_LIB "libGLESv2.so"
 #define EGL_LIB "libEGL.so"
