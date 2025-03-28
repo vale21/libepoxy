@@ -1,3 +1,6 @@
+This repo is just a fork of the UTM libepoxy-angle repo, with a tag that ensures that the homebrew build will continue working even if UTM team keeps developing this code
+--------
+
 ![Ubuntu](https://github.com/anholt/libepoxy/workflows/Ubuntu/badge.svg)
 ![macOS](https://github.com/anholt/libepoxy/workflows/macOS/badge.svg)
 ![MSVC Build](https://github.com/anholt/libepoxy/workflows/MSVC%20Build/badge.svg)
